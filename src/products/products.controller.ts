@@ -1,4 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, ValidationPipe } from "@nestjs/common";
+import { ApiBody, ApiProperty } from "@nestjs/swagger";
+import { type } from "os";
+import { ProductDTO } from "./products.model";
 import { ProductsService } from "./products.service";
 
 @Controller('products')
@@ -6,6 +9,7 @@ export class ProductsController {
     constructor(private readonly productService: ProductsService) { }
 
     @Post()
+    @ApiBody({type:ProductDTO})
     addProduct(
         @Body('title') prodTitle: string,
         @Body('description') prodDesc: string,
@@ -31,6 +35,7 @@ export class ProductsController {
     }
     
     @Patch(':id')
+    @ApiBody({type:ProductDTO})
     updateProduct(
         @Param('id') prodId:string,
         @Body('title') prodTitle: string,

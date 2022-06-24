@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 
 
 export class Product {
@@ -5,4 +6,16 @@ export class Product {
         public description: string, public price: number) {
 
     };
+}
+
+export class ProductDTO {
+
+    @ApiProperty({ type: String, description: 'title' })
+    title: number
+
+    @ApiProperty({ type: String, description: 'description' })
+    description: number
+
+    @ApiProperty({ type: Number, description: 'price' })
+    price: number
 }
