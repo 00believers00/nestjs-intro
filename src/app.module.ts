@@ -13,4 +13,3 @@ import { MongooseModule } from '@nestjs/mongoose';
   providers: [AppService],
 })
 export class AppModule {}
-//mongodb+srv://X0UpF71Z0SMV1IT6:1fQqpNGxdP5aF9yg@cluster0.khk1m.mongodb.net/?retryWrites=true&w=majority
